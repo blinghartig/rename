@@ -232,6 +232,10 @@ class FileRepository {
         contentLineByLine[i + 1] = '\t<string>$appName</string>\r';
         break;
       }
+      if (contentLineByLine[i].contains('<key>CFBundleDisplayName</key>')) {
+        contentLineByLine[i + 1] = '\t<string>$appName</string>\r';
+        break;
+      }
     }
     var writtenFile = await writeFile(
       filePath: iosInfoPlistPath,
